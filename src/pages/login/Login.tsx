@@ -1,17 +1,21 @@
-import Checkbox from '../components/Checkbox'
-import Input from '../components/Input'
-import Title from '../components/Title'
-import Button from '../components/Button'
-import Link from '../components/Link'
-import { useLogin } from '../hooks/useLogin'
+import Checkbox from '../../components/Checkbox'
+import Input from '../../components/Input'
+import Title from '../../components/Title'
+import Button from '../../components/Button'
+import Link from '../../components/Link'
+import  { useNavigate }  from 'react-router-dom'
+import { useLogin } from '../../hooks/useLogin'
 import { useState } from 'react'
+import { useAuth } from "../../context/authContext"
 
 const Login = () => {
 
   const { mutate , isPending } = useLogin();
-
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const { login } = useAuth();
 
   function handleLogin() {
     mutate(
@@ -21,7 +25,8 @@ const Login = () => {
       },
       {
         onSuccess(data) {
-          localStorage.setItem("token", data.auth);
+          login(data.auth);
+          navigate('/', { replace: true });
         },
       }
     );
