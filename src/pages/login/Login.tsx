@@ -26,6 +26,7 @@ const Login = () => {
       {
         onSuccess(data) {
           login(data.auth);
+          localStorage.setItem('name', data.name);
           navigate('/', { replace: true });
         },
       }

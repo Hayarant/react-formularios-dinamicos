@@ -7,10 +7,8 @@ export default function useLogout() {
     const navigate = useNavigate();
     const { logout } = useAuth();
 
-    function handleLogout() {
+    return () => {
         logout();
-        navigate('/login' , { replace: true });
-    }
-
-    return handleLogout();
+        navigate("/login");
+    };
 }

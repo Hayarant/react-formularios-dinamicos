@@ -7,6 +7,7 @@ export interface LoginRequest {
 
 export interface LoginResponse {
   auth: string;
+  name: string ;
 }
 
 export async function login(data: LoginRequest) {
