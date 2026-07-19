@@ -1,8 +1,9 @@
-import { useQuery } from "@tanstack/react-query";
-import { QUERY_KEY_USERS } from "../../../api/auth/users/contants/api";
-import  { users }  from "../../../api/auth/users/users";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import {MUTATION_KEY_UPDATE_USER_BY_ID , QUERY_KEY_USER_BY_ID, QUERY_KEY_USERS } from "../../../api/auth/users/contants/api";
+import  { getUserById , updateUserById, users }  from "../../../api/auth/users/users";
+import type {UserResponse , UpdateUserRequest} from "../../../api/auth/users/users";
 
-interface IUsers {
+interface IGetUserByIdParams  {
     id: number;
 }
 
@@ -13,12 +14,22 @@ export function Users(){
     });
 }
 
-export function useUsers(data : IUsers) {
+export function useGetUserById(id : IGetUserByIdParams ) {
 
-    console.log(data.id);
+    return useQuery<UserResponse>({
+        queryKey: [QUERY_KEY_USER_BY_ID, id],
+        queryFn: () => getUserById(id)
+    });
 
 }
 
 export function useCreateUser() {
 
+}
+
+export function useUpdateUser(){
+    return useMutation<UserResponse, Error, UpdateUserRequest>({
+        mutationKey:[MUTATION_KEY_UPDATE_USER_BY_ID],
+        mutationFn:updateUserById,
+    })
 }

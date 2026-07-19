@@ -5,15 +5,7 @@ import UserList from './components/UserList/Index'
 import { Users } from '../../hooks/auth/users/users'
 
 const UsersPage = () => {
-  const { data: list , isPending, error } = Users();
-
-  if (isPending) {
-    return <p>Carregando...</p>;
-  }
-
-  if (error) {
-    return <p>Erro ao carregar usuários.</p>;
-  }
+  const { data: list = [] , isPending, error } = Users();
 
   return (
     <div className="flex flex-col gap-2 w-screen h-screen">
@@ -29,7 +21,7 @@ const UsersPage = () => {
                 </div>
 
                 <hr className="w-full mb-2 border-t border-gray-400" />
-                <UserList data={list} />
+                <UserList data={list} loading={isPending} error={error} />
             </div>
         </div>
       </div>
