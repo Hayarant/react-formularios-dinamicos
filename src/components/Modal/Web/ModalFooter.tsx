@@ -5,5 +5,5 @@ interface Props {
 }
 
 export function ModalFooter({ children }: Props) {
-  return <div className="flex justify-end gap-2 border-t p-5">{children}</div>;
+  return <div className="flex justify-end gap-2 p-3">{children}</div>;
 }
