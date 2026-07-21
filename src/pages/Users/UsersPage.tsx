@@ -1,4 +1,4 @@
-import { Button } from "@/components/Button";
+import { ButtonBlock } from "@/components/Button";
 import HeaderMenu from "@/components/Menu/Web/Index";
 import UserList from "./components/UserList/Index";
 
@@ -18,8 +18,8 @@ const UsersPage = () => {
               Controle de Usuários
             </h3>
 
-            <div className="flex gap-2 mb-2">
-              <Button text="Cadastrar" onClick={() => {}} />
+            <div className="flex w-50 gap-2 mb-2">
+              <ButtonBlock text="Cadastrar Usuário" onClick={() => {}} />
             </div>
 
             <hr className="w-full mb-2 border-t border-gray-400" />

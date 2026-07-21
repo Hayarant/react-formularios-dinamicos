@@ -1,7 +1,7 @@
 import Checkbox from "../../components/Checkbox";
 import Input from "../../components/Input";
 import { Title } from "../../components/Title";
-import { ButtonConfirm } from "../../components/Button";
+import { ButtonLogin } from "../../components/Button";
 import Link from "../../components/Link";
 import { useNavigate } from "react-router-dom";
 import { useLogin } from "../../hooks/useLogin";
@@ -33,19 +33,19 @@ const LoginPage = () => {
   }
 
   return (
-    <div className="w-screen h-screen flex flex-col items-center justify-center gap-4 bg-linear-60 from-amber-500 to-amber-600">
-      <div className="min-h-50 w-100 p-4 border rounded flex flex-col items-center gap-4 bg-amber-500 border-white">
+    <div className="w-screen h-screen flex flex-col items-center justify-center gap-4 bg-gray-100">
+      <div className="min-h-50 w-lg p-4 border rounded flex flex-col items-center gap-4 bg-amber-500 border-gray-100">
         <Title text="Login" />
-        <hr className="w-full border-t border-white" />
+        <hr className="w-full border-t border-gray-100" />
         <Input
           type="text"
-          placeholder="Username"
+          placeholder="E-mail"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
         <Input
           type="password"
-          placeholder="Password"
+          placeholder="Senha"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
@@ -53,7 +53,7 @@ const LoginPage = () => {
           <Checkbox text="Lembre-se de mim" size="medium" />
           <Link text="Esqueci minha senha" onClick={() => {}} size="medium" />
         </div>
-        <ButtonConfirm
+        <ButtonLogin
           text={isPending ? "Entrando..." : "Login"}
           onClick={handleLogin}
         />

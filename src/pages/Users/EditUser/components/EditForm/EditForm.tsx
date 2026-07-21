@@ -84,7 +84,7 @@ const EditForm = ({ data }: EditUserFormProps) => {
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <div className="flex gap-1 justify-end">
+          <div className="flex gap-1 w-full justify-center">
             <ButtonConfirm text="Confirmar" onClick={handleConfirmModal} />
             <Button text="Cancelar" onClick={handleConfirmModal} />
           </div>
